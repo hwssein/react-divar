@@ -1,0 +1,31 @@
+:root {
+  font-family: "vazir" Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "vazir";
+}
+
+a {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+
+body {
+  margin: auto;
+  max-width: 1200px;
+  min-height: 100vh;
+  padding: 10px;
+  min-width: 730px;
+}
