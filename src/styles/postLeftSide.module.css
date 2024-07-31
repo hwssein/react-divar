@@ -1,0 +1,9 @@
+.left_side_container {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .left_side_container {
+    display: none;
+  }
+}

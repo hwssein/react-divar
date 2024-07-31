@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 import { getPost } from "../services/post";
 
 import { Grid } from "@mui/material";
-
 import Loader from "../components/modules/Loader";
+import styles from "../styles/post-page.module.css";
 
 function PostPage() {
   const params = useParams();
@@ -33,15 +33,15 @@ function PostPage() {
   return (
     <>
       <Grid
+        component="div"
         container
-        spacing={1}
-        display="flex"
-        flexDirection="row"
-        alignItems="flex-start"
-        justifyContent="center"
+        spacing={2}
+        className={styles.post_container}
       >
         <Grid
+          component="div"
           item
+          xs={12}
           sm={6}
           sx={{
             padding: "16px",
@@ -50,12 +50,16 @@ function PostPage() {
             flexFlow: "column nowrap",
             alignItems: "flex-start",
             justifyContent: "center",
+            width: "100%",
           }}
         >
           {data && <PostRightSide data={data.post} />}
         </Grid>
+
         <Grid
+          component="div"
           item
+          xs={12}
           sm={6}
           sx={{
             padding: "16px",
@@ -64,6 +68,7 @@ function PostPage() {
             flexFlow: "column nowrap",
             alignItems: "center",
             justifyContent: "flex-start",
+            width: "100%",
           }}
         >
           {data && <PostLeftSide data={data.post} />}

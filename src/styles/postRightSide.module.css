@@ -1,0 +1,11 @@
+.right_side_container {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .right_side_container {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+  }
+}

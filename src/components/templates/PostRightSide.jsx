@@ -15,6 +15,8 @@ import {
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ShareIcon from "@mui/icons-material/Share";
+import OptionInPost from "../modules/OptionInPost";
+import styles from "../../styles/postRightSide.module.css";
 
 function PostRightSide({ data }) {
   const url = window.location.href;
@@ -185,6 +187,10 @@ function PostRightSide({ data }) {
       </Typography>
 
       <Divider component="li" sx={{ width: "100%" }} />
+
+      <Box component="div" className={styles.right_side_container}>
+        <OptionInPost />
+      </Box>
     </>
   );
 }

@@ -1,0 +1,15 @@
+.post_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .post_container {
+    flex-flow: column-reverse nowrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
