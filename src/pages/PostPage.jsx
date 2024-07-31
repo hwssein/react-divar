@@ -6,7 +6,6 @@ import PostRightSide from "../components/templates/PostRightSide";
 import { useParams } from "react-router-dom";
 import { getPost } from "../services/post";
 
-import { Grid } from "@mui/material";
 import Loader from "../components/modules/Loader";
 import styles from "../styles/post-page.module.css";
 
@@ -32,48 +31,15 @@ function PostPage() {
 
   return (
     <>
-      <Grid
-        component="div"
-        container
-        spacing={2}
-        className={styles.post_container}
-      >
-        <Grid
-          component="div"
-          item
-          xs={12}
-          sm={6}
-          sx={{
-            padding: "16px",
-            marginTop: "8px",
-            display: "flex",
-            flexFlow: "column nowrap",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            width: "100%",
-          }}
-        >
+      <div className={styles.post_container}>
+        <div className={styles.right_container}>
           {data && <PostRightSide data={data.post} />}
-        </Grid>
+        </div>
 
-        <Grid
-          component="div"
-          item
-          xs={12}
-          sm={6}
-          sx={{
-            padding: "16px",
-            marginTop: "8px",
-            display: "flex",
-            flexFlow: "column nowrap",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            width: "100%",
-          }}
-        >
+        <div className={styles.left_container}>
           {data && <PostLeftSide data={data.post} />}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </>
   );
 }

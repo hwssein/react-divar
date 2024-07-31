@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 import { sp } from "../../utils/numbers";
 import { deletePost } from "../../services/post";
@@ -13,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
-import { Link } from "react-router-dom";
+import divarImage from "../../assets/image/DivarLogo.png";
 
 function PostCard({ item, admin }) {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -46,7 +47,7 @@ function PostCard({ item, admin }) {
               justifyContent: "space-between",
             }}
           >
-            <CardContent sx={{ width: "calc(100% - 150px)" }}>
+            <CardContent sx={{ width: "calc(100% - 100px)" }}>
               <Typography
                 component="h6"
                 variant="h6"
@@ -102,8 +103,9 @@ function PostCard({ item, admin }) {
 
             <CardMedia
               component="img"
-              src={`${BASE_URL}${item.images[0]}`}
-              sx={{ width: "150px", borderRadius: "4px", marginLeft: "8px" }}
+              // src={`${BASE_URL}${item.images[0]}`} cant show the image
+              src={divarImage}
+              sx={{ width: "100px", borderRadius: "4px", marginLeft: "8px" }}
               alt={`${item.options?.title} image`}
             />
           </CardActionArea>
