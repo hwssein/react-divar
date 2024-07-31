@@ -29,6 +29,7 @@ function HomePageContent({ data, refetch }) {
             md={6}
             lg={4}
             sx={{
+              width: "100%",
               display: "flex",
               flexFlow: "row wrap",
               alignItems: "center",

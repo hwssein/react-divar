@@ -107,18 +107,18 @@ function PostCard({ item, admin }) {
               alt={`${item.options?.title} image`}
             />
           </CardActionArea>
-
-          {admin.role === "ADMIN" && (
-            <Button
-              variant="contained"
-              onClick={() => mutate(item._id)}
-              sx={{ width: "100%" }}
-            >
-              حذف
-            </Button>
-          )}
         </Card>
       </Link>
+
+      {admin.role === "ADMIN" && (
+        <Button
+          variant="contained"
+          onClick={() => mutate(item._id)}
+          sx={{ width: "100%" }}
+        >
+          حذف
+        </Button>
+      )}
     </>
   );
 }
