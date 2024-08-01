@@ -4,6 +4,8 @@ import { Box, Divider, IconButton, TextField, Typography } from "@mui/material";
 import ThumbUpIconAlt from "@mui/icons-material/ThumbUp";
 import ThumbDownIconAlt from "@mui/icons-material/ThumbDown";
 
+import styles from "../../styles/optionInPost.module.css";
+
 function OptionInPost() {
   const [like, setLike] = useState(false);
   const [disLike, setDisLike] = useState(false);
@@ -41,21 +43,12 @@ function OptionInPost() {
       >
         یادداشت ها فقط برای شما قابل دیدن است و پس از حذف آگهی پاک خواهند شد.
       </Typography>
-      <Box
-        component="div"
-        sx={{
-          display: "flex",
-          flexFlow: "row nowrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
-        }}
-      >
+      <Box className={styles.rating_container} component="div">
         <Typography component="p" variant="p">
           بازخورد شما از این آگهی چیست؟
         </Typography>
 
-        <Box>
+        <Box component="div" className={styles.rating}>
           <IconButton onClick={disLikeHandler}>
             <ThumbDownIconAlt sx={disLike ? { color: "red" } : null} />
           </IconButton>

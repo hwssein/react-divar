@@ -1,9 +1,19 @@
-.right_side_container {
+.post_option_container {
   display: none;
 }
 
-@media (max-width: 730px) {
-  .right_side_container {
+@media (min-width: 300px) and (max-width: 400px) {
+  .contact_btn_container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 730px) {
+  .post_option_container {
     display: block;
     width: 100%;
     margin-top: 16px;

@@ -119,7 +119,7 @@ function PostRightSide({ data }) {
           marginBottom: "32px",
         }}
       >
-        <Box component="div">
+        <Box component="div" className={styles.contact_btn_container}>
           <Button
             variant="contained"
             sx={{ width: "120px", marginLeft: "8px" }}
@@ -188,7 +188,7 @@ function PostRightSide({ data }) {
 
       <Divider component="li" sx={{ width: "100%" }} />
 
-      <Box component="div" className={styles.right_side_container}>
+      <Box component="div" className={styles.post_option_container}>
         <OptionInPost />
       </Box>
     </>
