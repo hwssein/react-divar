@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { setFilterSliceSearch } from "../../features/filter/filterSlice";
-
 import {
   AppBar,
   Box,
@@ -12,25 +9,17 @@ import {
   Divider,
   Toolbar,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import styles from "../../styles/layout.module.css";
 import divarIcon from "../../assets/icons/divar.svg";
 import locationIcon from "../../assets/icons/location.svg";
 import profileIcon from "../../assets/icons/profile.svg";
 import DashboardMoreOption from "../modules/DashboardMoreOption";
+import SearchBox from "../modules/SearchBox";
 
 function Layout({ children }) {
   const location = useLocation();
-  const dispatch = useDispatch();
 
-  const [search, setSearch] = useState("");
   const [moreOptions, setMoreOptions] = useState(false);
-
-  const searchHandler = () => {
-    dispatch(setFilterSliceSearch(search));
-
-    setSearch("");
-  };
 
   return (
     <>
@@ -63,36 +52,21 @@ function Layout({ children }) {
 
               <Divider orientation="vertical" variant="middle" flexItem />
 
-              <Button
-                variant="text"
-                color="secondary"
-                startIcon={
-                  <img src={locationIcon} className={styles.button_icons} />
-                }
-                sx={{ margin: "0 8px" }}
-              >
-                رشت
-              </Button>
-
-              <span className={styles.search_container}>
-                <input
-                  className={styles.search_input}
-                  type="text"
-                  placeholder="جستجو در همه ی آگهی ها"
-                  value={search}
-                  onChange={(e) =>
-                    setSearch(e.target.value.toLowerCase().trim())
-                  }
-                />
+              <div className={styles.city_btn} style={{ margin: "0 8px" }}>
                 <Button
-                  variant="outlined"
-                  sx={{ width: "40px" }}
-                  size="small"
-                  onClick={searchHandler}
+                  variant="text"
+                  color="secondary"
+                  startIcon={
+                    <img src={locationIcon} className={styles.button_icons} />
+                  }
                 >
-                  <SearchIcon />
+                  رشت
                 </Button>
-              </span>
+              </div>
+
+              <div className={styles.search_box_container}>
+                <SearchBox />
+              </div>
             </Box>
 
             <Box
@@ -108,6 +82,7 @@ function Layout({ children }) {
                 alignItems="center"
                 justifyContent="flex-start"
                 position="relative"
+                sx={{ width: "104px" }}
               >
                 {location.pathname === "/dashboard" ? (
                   <Button
@@ -122,7 +97,7 @@ function Layout({ children }) {
                     دیوار من
                   </Button>
                 ) : (
-                  <Link to="/dashboard">
+                  <Link to="/dashboard" className={styles.my_divar_btn}>
                     <Button
                       variant="text"
                       color="secondary"
@@ -144,7 +119,7 @@ function Layout({ children }) {
                 )}
               </Box>
 
-              <Link to="/auth">
+              <Link to="/auth" className={styles.post_btn}>
                 <Button
                   variant="contained"
                   color="primary"

@@ -17,6 +17,8 @@ import {
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
 
+import styles from "../../styles/addPost.module.css";
+
 function AddPost() {
   const queryClient = useQueryClient();
 
@@ -120,22 +122,22 @@ function AddPost() {
           </Select>
         </FormControl>
 
-        <Box
-          component="div"
-          display="flex"
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ marginBottom: "16px" }}
-        >
+        <Box className={styles.title_container} component="div">
           <TextField
+            className={styles.title}
             type="text"
             variant="outlined"
             label="عنوان"
             name="title"
           />
 
-          <TextField type="text" variant="outlined" label="شهر" name="city" />
+          <TextField
+            className={styles.city}
+            type="text"
+            variant="outlined"
+            label="شهر"
+            name="city"
+          />
         </Box>
 
         <TextField
@@ -157,15 +159,9 @@ function AddPost() {
           sx={{ marginBottom: "16px" }}
         />
 
-        <Box
-          component="div"
-          display="flex"
-          flexBasis="row"
-          alignItems="center"
-          justifyContent="flex-start"
-          sx={{ marginBottom: "16px" }}
-        >
+        <Box className={styles.price_container} component="div">
           <TextField
+            className={styles.price}
             variant="outlined"
             type="number"
             label="قیمت"

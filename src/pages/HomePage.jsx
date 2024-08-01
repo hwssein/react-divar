@@ -18,6 +18,7 @@ import {
 
 import { Grid } from "@mui/material";
 import Loader from "../components/modules/Loader";
+import styles from "../styles/homePage.module.css";
 
 function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,32 +37,27 @@ function HomePage() {
   }, [data]);
 
   useEffect(() => {
-    setSearchParams(createFilteringObject(filterSliceData));
+    if (data?.posts) {
+      setSearchParams(createFilteringObject(filterSliceData));
 
-    let filteredPosts = searchHandler(data?.posts, filterSliceData.search);
+      let filteredPosts = searchHandler(data?.posts, filterSliceData.search);
 
-    filteredPosts = categoryHandler(filteredPosts, filterSliceData.category);
+      filteredPosts = categoryHandler(filteredPosts, filterSliceData.category);
 
-    setDisplayData(filteredPosts);
+      setDisplayData(filteredPosts);
+    }
   }, [filterSliceData]);
 
   if (isLoading) return <Loader />;
 
   return (
     <>
-      <Grid
-        container
-        spacing={2}
-        display="flex"
-        flexDirection="row"
-        alignItems="flex-start"
-        justifyContent="flex-start"
-      >
-        <Grid item xs={4} md={2}>
+      <div className={styles.home_page_container}>
+        <div className={styles.sidebar_container}>
           <Sidebar />
-        </Grid>
+        </div>
 
-        <Grid item xs={8} md={10}>
+        <div className={styles.home_page_content_container}>
           {displayData?.length === 0 ? (
             <NotFoundPosts />
           ) : (
@@ -71,8 +67,8 @@ function HomePage() {
               isLoading={isLoading}
             />
           )}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </>
   );
 }

@@ -4,6 +4,9 @@ import { deletePost } from "../../services/post";
 import { sp } from "../../utils/numbers";
 import { Box, Button, Typography } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
+import divarImage from "../../assets/image/DivarLogo.png";
+
+import styles from "../../styles/myPostCard.module.css";
 
 function MyPostCard({ data }) {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -25,27 +28,17 @@ function MyPostCard({ data }) {
 
   return (
     <>
-      <Box
-        component="div"
-        sx={{
-          boxShadow:
-            "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
-          borderRadius: "4px",
-          display: "flex",
-          flexFlow: "row nowrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box component="div" sx={{ width: "20%", margin: "8px 4px 0 16px" }}>
+      <Box component="div" className={styles.card_container}>
+        <Box component="div" className={styles.card_image}>
           <img
-            src={`${BASE_URL}${data.images[0]}`}
+            // src={`${BASE_URL}${data.images[0]}`} cant show the image
+            src={divarImage}
             alt={`عکس ${data.options?.title}`}
             style={{ width: "100%", height: "100%", borderRadius: "4px" }}
           />
         </Box>
 
-        <Box component="div" sx={{ width: "40%" }}>
+        <Box component="div" className={styles.card_title}>
           <Typography component="h6" variant="h6" color="primary" my={1}>
             {data.options?.title}
           </Typography>
@@ -60,15 +53,7 @@ function MyPostCard({ data }) {
           </Typography>
         </Box>
 
-        <Box
-          component="div"
-          display="flex"
-          flexDirection="column"
-          alignItems="flex-start"
-          justifyContent="space-between"
-          p={1}
-          sx={{ width: "30%", textAlign: "center" }}
-        >
+        <Box className={styles.card_date_container} component="div">
           <Typography component="p" variant="p" mb={3} width="100%">
             {new Date(data.createdAt).toLocaleDateString("fa-IR")}
           </Typography>
@@ -91,13 +76,15 @@ function MyPostCard({ data }) {
           </Box>
         </Box>
 
-        <Button
-          variant="contained"
-          onClick={() => deleteHandler(data._id)}
-          sx={{ width: "10%", margin: "8px" }}
-        >
-          حذف
-        </Button>
+        <div className={styles.delete_btn}>
+          <Button
+            variant="contained"
+            onClick={() => deleteHandler(data._id)}
+            sx={{ width: "100%" }}
+          >
+            حذف
+          </Button>
+        </div>
       </Box>
     </>
   );

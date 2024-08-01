@@ -1,0 +1,36 @@
+.home_page_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.sidebar_container {
+  width: 30%;
+}
+
+.home_page_content_container {
+  width: 70%;
+}
+
+@media (min-width: 300px) and (max-width: 730px) {
+  .home_page_container {
+    width: 100%;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .sidebar_container {
+    width: 100%;
+  }
+
+  .home_page_content_container {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}

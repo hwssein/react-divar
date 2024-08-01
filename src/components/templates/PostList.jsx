@@ -22,7 +22,7 @@ function PostList() {
 
   return (
     <>
-      <Box component="div" sx={{ padding: " 8px " }}>
+      <Box component="div" sx={{ padding: " 8px ", marginBottom: "8px" }}>
         <Typography
           component="h6"
           variant="h6"
@@ -36,7 +36,18 @@ function PostList() {
 
       <Grid container spacing={1} my={1}>
         {filterData.map((item) => (
-          <Grid item xs={12} key={item._id}>
+          <Grid
+            item
+            xs={12}
+            key={item._id}
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexFlow: "row wrap",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <MyPostCard data={item} />
           </Grid>
         ))}

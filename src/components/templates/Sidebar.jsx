@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import SearchBox from "../modules/SearchBox";
+
 import { getCategory } from "../../services/admin";
 
 import { useQuery } from "@tanstack/react-query";
@@ -9,6 +11,7 @@ import { setFilterSliceCategory } from "../../features/filter/filterSlice";
 import { Box, Typography } from "@mui/material";
 import CategoryIcon from "@mui/icons-material/Category";
 import Loader from "../modules/Loader";
+import styles from "../../styles/sidebar.module.css";
 
 import car from "../../assets/icons/car.svg";
 import digital from "../../assets/icons/digital.svg";
@@ -50,7 +53,15 @@ function Sidebar() {
 
   return (
     <>
-      <Box component="div" sx={{ padding: "16px 8px " }}>
+      <div className={styles.search_box_container}>
+        <SearchBox />
+      </div>
+
+      <Box
+        component="div"
+        className={styles.category_title_container}
+        sx={{ padding: "16px 8px " }}
+      >
         <Typography
           component="span"
           variant="span"
@@ -62,18 +73,8 @@ function Sidebar() {
         </Typography>
       </Box>
 
-      <Box component="ul">
-        <Box
-          component="li"
-          sx={{
-            display: "flex",
-            flexFlow: "row nowrap",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            padding: "8px",
-            cursor: "pointer",
-          }}
-        >
+      <Box component="ul" className={styles.category_container}>
+        <Box className={styles.category_item} component="li">
           <CategoryIcon sx={{ color: "#B0B0B0", marginLeft: "4px" }} />
           <Typography
             component="span"
@@ -90,18 +91,7 @@ function Sidebar() {
         </Box>
 
         {data.map((item) => (
-          <Box
-            component="li"
-            key={item._id}
-            sx={{
-              display: "flex",
-              flexFlow: "row nowrap",
-              alignItems: "center",
-              justifyContent: "flex-start",
-              padding: "6px",
-              cursor: "pointer",
-            }}
-          >
+          <Box className={styles.category_item} component="li" key={item._id}>
             <img
               src={image[item.icon]}
               alt={item.icon}

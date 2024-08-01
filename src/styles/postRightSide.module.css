@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 730px) {
   .right_side_container {
     display: block;
     width: 100%;

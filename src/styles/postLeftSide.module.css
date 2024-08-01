@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 730px) {
   .left_side_container {
     display: none;
   }

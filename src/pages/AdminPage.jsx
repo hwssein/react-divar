@@ -18,11 +18,11 @@ function AdminPage() {
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <CategoryForm />
         </Grid>
 
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8}>
           <Typography
             component="h6"
             variant="h6"

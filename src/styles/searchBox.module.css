@@ -1,0 +1,30 @@
+.search_container {
+  width: 350px;
+  background-color: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 5px;
+}
+.search_input {
+  width: 100%;
+  padding: 3px;
+  background-color: inherit;
+}
+
+@media (min-width: 300px) and (max-width: 730px) {
+  .search_container {
+    width: 100%;
+  }
+}
+@media (min-width: 731px) and (max-width: 830px) {
+  .search_container {
+    width: 250px;
+  }
+}
+@media (min-width: 831px) {
+  .search_container {
+    width: 350px;
+  }
+}
